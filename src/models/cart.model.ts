@@ -76,4 +76,4 @@ cartSchema.pre("save", function (this: CartDocument) {
 
 
 export const CartModel : Model<ICart> = 
-    mongoose.models.cart || mongoose.model<ICart>("Cart", cartSchema);
+    mongoose.models.Cart || mongoose.model<ICart>("Cart", cartSchema);

@@ -51,4 +51,4 @@ const productSchema = new Schema<IProduct>({
 
 // Ye object ek mongoose model hai jo IProduct type ke documents handle karega.
 export const ProductModel : Model<IProduct> = 
-    mongoose.models.product || mongoose.model<IProduct>("Product", productSchema);
+    mongoose.models.Product || mongoose.model<IProduct>("Product", productSchema);
