@@ -11,3 +11,15 @@ export async function getRole(request: NextRequest){
         request.headers.get("x-user-role") || request.headers.get("X-User-Role") || null
     )
 }
+
+export async function requireAdmin(request: NextRequest) {
+    const role = await getRole(request);
+
+    if(!role){
+        throw new Error("UNAUTHENTICATED");
+    }
+
+    if(role !== "ADMIN"){
+        throw new Error("FORBIDDEN");
+    }
+}

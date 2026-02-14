@@ -7,6 +7,8 @@ export interface IProduct {
     discount: number;
     stock: number;
     status: ProductStatus;
+    soldCount: number;
+    lastSoldAt: Date
 }
 
 // Below we're actually creating type of document who comes from the DB or mongoDB
@@ -45,6 +47,15 @@ const productSchema = new Schema<IProduct>({
         type: String,
         enum: PRODUCT_STATUS,
         default: "ACTIVE"
+    },
+
+    soldCount: {
+        type: Number,
+        default: 0
+    },
+
+    lastSoldAt: {
+        type: Date
     }
 });
 
